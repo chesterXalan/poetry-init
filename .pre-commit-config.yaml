@@ -1,0 +1,58 @@
+# See https://pre-commit.com for more information
+# See https://pre-commit.com/hooks.html for more hooks
+
+# pre-commit install                    啟用指定的 git hook
+# pre-commit autoupdate                 更新以下 repo 的版本
+# pre-commit run --all-files            全檔案檢查，而不是只有被提交的檔案
+# pre-commit run <hook_id> --all-files  只檢查特定一個 hook 是否通過
+
+default_install_hook_types: [ pre-commit, commit-msg ]
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.6.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-added-large-files
+        args: [ "--maxkb=8192" ]
+      - id: check-ast
+        language_version: python3.12
+      - id: name-tests-test
+        args: [ "--pytest-test-first" ]
+      - id: check-case-conflict
+      - id: check-yaml
+      - id: check-toml
+      - id: check-xml
+
+  - repo: https://gitlab.com/bmares/check-json5
+    rev: v1.0.0
+    hooks:
+      - id: check-json5
+
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.6.1
+    hooks:
+      - id: ruff
+      - id: ruff-format
+        args: [ --check ]
+
+  - repo: https://github.com/pre-commit/mirrors-mypy
+    rev: v1.11.1
+    hooks:
+      - id: mypy
+        args: [ "--config-file=pyproject.toml" ]
+
+  - repo: https://github.com/gitleaks/gitleaks
+    rev: v8.18.4
+    hooks:
+      - id: gitleaks
+
+  - repo: https://github.com/python-poetry/poetry
+    rev: 1.8.0
+    hooks:
+      - id: poetry-check
+
+  - repo: https://github.com/commitizen-tools/commitizen
+    rev: v3.29.0
+    hooks:
+      - id: commitizen
