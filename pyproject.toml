@@ -9,21 +9,21 @@ package-mode = false
 [tool.poetry.dependencies]
 python = ">=3.12,<3.13"
 python-dotenv = "^1.0.1"
-rich = "^13.7.1"
-pydantic = "^2.8.2"
-orjson = "^3.10.7"
+rich = "^13.9.4"
+pydantic = "^2.9.2"
+orjson = "^3.10.11"
 
 [tool.poetry.group.dev.dependencies]
-pre-commit = "^3.8.0"
+pre-commit = "^4.0.1"
 ruff = "^0"
-mypy = "^1.11.1"
-commitizen = "^3.29.0"
+mypy = "^1.13.0"
+commitizen = "^3.30.1"
 datamodel-code-generator = "^0"
 
 
 [tool.poetry.group.jupyter.dependencies]
-notebook = "^7.2.1"
-ipywidgets = "^8.1.3"
+notebook = "^7.2.2"
+ipywidgets = "^8.1.5"
 
 [build-system]
 requires = ["poetry-core"]
@@ -31,7 +31,7 @@ build-backend = "poetry.core.masonry.api"
 
 # <https://docs.astral.sh/ruff/settings/>
 [tool.ruff]
-required-version = ">=0.6.1"
+required-version = ">=0.7.0"
 target-version = "py312"
 output-format = "concise"
 show-fixes = true
